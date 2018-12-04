@@ -1,6 +1,6 @@
 # vue-cms
 
-> A Vue.js project
+> A Vue.js project vue演示项目
 
 ## Build Setup
 
