@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 
 import './lib/mui/css/mui.css'
+import './lib/mui/css/icons-extra.css'
 // import {Header} from 'mint-ui'
 // Vue.component(Header.name,Header)
 
