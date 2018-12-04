@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--<mt-header fixed title="vue项目"></mt-header>-->
-    <mt-header fixed title="固定在顶部"></mt-header>
+    <mt-header fixed title="Vue项目"></mt-header>
 
     <!--<img src="./assets/logo.png">-->
     <router-view/>
