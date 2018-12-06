@@ -12,7 +12,25 @@
 
 <script>
     export default {
-        name: "HomeContainer"
+      name: "HomeContainer",
+      data(){
+        return {
+          lunbotuList:[]
+
+        }
+      },
+      created(){
+        this.getLunbotu();
+      },
+      methods:{
+        getLunbotu(){
+          this.$http.get("src/testdata/lunbo.json").then(result =>{
+            console.log(result);
+          })
+
+        }
+
+      }
     }
 </script>
 
