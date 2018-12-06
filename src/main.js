@@ -15,6 +15,12 @@ Vue.config.productionTip = false
 import Mint from 'mint-ui';
 Vue.use(Mint);
 
+//轮播图
+import { Swipe, SwipeItem } from 'mint-ui';
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

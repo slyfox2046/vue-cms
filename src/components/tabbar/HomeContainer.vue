@@ -1,21 +1,12 @@
 <template>
   <div>
+    <mt-swipe :auto="4000">
+      <mt-swipe-item>a11</mt-swipe-item>
+      <mt-swipe-item>b22</mt-swipe-item>
+      <mt-swipe-item>c33</mt-swipe-item>
+    </mt-swipe>
     <div>      home    </div>
-    <div>      2    </div>
-    <div>      3    </div>
-    <div>      4    </div>
-    <div>      5    </div>
-    <div>      6    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
-    <div>      1    </div>
+
   </div>
 </template>
 
@@ -25,6 +16,22 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .mint-swipe{
+    height: 200px;
+  }
+  .mint-swipe-item{
+    &:nth-child(1){
+      background-color: red;
+    }
+    &:nth-child(2){
+      background-color: blue;
+    }
+    &:nth-child(3){
+      background-color: cyan;
+    }
+
+
+  }
 
 </style>
