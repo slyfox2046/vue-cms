@@ -21,6 +21,12 @@ import { Swipe, SwipeItem } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
