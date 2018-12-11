@@ -6,6 +6,7 @@ import HomeContainer from '@/components/tabbar/HomeContainer'
 import MemberContainer from '@/components/tabbar/MemberContainer'
 import ShopcarContainer from '@/components/tabbar/ShopcarContainer'
 import SearchContainer from '@/components/tabbar/SearchContainer'
+import NewsList from '@/components/news/NewsList'
 
 Vue.use(Router)
 
@@ -21,6 +22,7 @@ export default new Router({
     {path:'/member',component : MemberContainer},
     {path:'/shopcar',component : ShopcarContainer},
     {path:'/search',component : SearchContainer},
+    {path:'/home/newslist',component : NewsList},
   ],
   linkActiveClass:'mui-active' //覆盖默认路由高亮的类，默认的类叫做router-link-active
 })
