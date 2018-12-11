@@ -4,7 +4,10 @@
     <mt-header fixed title="Vue项目"></mt-header>
 
     <!--<img src="./assets/logo.png">-->
-    <router-view/>
+    <transition>
+      <router-view></router-view>
+    </transition>
+
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/home">
         <span class="mui-icon mui-icon-home"></span>
@@ -40,6 +43,24 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 40px;
+  /*去除动画中下方滚动条*/
+  overflow-x: hidden;
+
+}
+
+.v-enter{
+  opacity: 0;
+  transform: translateX(100%);
+}
+.v-leave-to{
+  opacity: 0;
+  transform: translateX(-100%);
+  /*解决动画中上下飘*/
+  position: absolute;
+}
+.v-enter-active,
+.v-leave-active{
+    transition:all 0.5s ease;
 }
 </style>

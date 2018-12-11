@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-swipe :auto="4000" class="mpos">
+    <mt-swipe :auto="4000">
       <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
         <img :src="item.img" alt="">
       </mt-swipe-item>
@@ -64,9 +64,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .mpos{
-    margin-top:-20px;
-  }
+
   .mint-swipe {
     height: 200px;
   }
