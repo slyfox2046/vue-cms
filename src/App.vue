@@ -43,7 +43,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  /*head栏高度*/
   margin-top: 40px;
+  /*底部栏位高度*/
+  margin-bottom: 50px;
   /*去除动画中下方滚动条*/
   overflow-x: hidden;
 

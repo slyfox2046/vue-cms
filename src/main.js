@@ -26,7 +26,13 @@ Vue.use(VueRouter)
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+Vue.http.options.root ="http://127.0.0.1:3000"
 
+import moment from 'moment'
+
+Vue.filter('dateFormat',function (dataStr,pattern="YYYY-MM-DD HH:mm:ss") {
+  return moment(dataStr).format(pattern);
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

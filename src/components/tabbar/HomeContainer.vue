@@ -55,7 +55,7 @@
     },
     methods: {
       getLunbotu() {
-        this.$http.get("http://localhost:3000/lunbo").then(result => {
+        this.$http.get("lunbo").then(result => {
           if (result.body.status === 0) {
             this.lunbotuList = result.body.message
             console.log(this.lunbotuList)
