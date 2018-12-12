@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <mt-button type="danger" size="large" plain>加载更多</mt-button>
+    <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
   </div>
 </template>
 
@@ -39,7 +39,9 @@
         this.$http.get("getcomments?id="+this.id+"&_limit=3&_start="+(this.pageIndex-1)*3).then(result => {
           if (result.status === 200) {
             // console.log(result.bodyText);
-            this.comments = JSON.parse(result.bodyText);
+            // this.comments = JSON.parse(result.bodyText);
+          //  加载更多时候，数据进行拼接
+            this.comments = this.comments.concat(JSON.parse(result.bodyText));
 
           } else {
             Toast("加载评论失败");
@@ -47,6 +49,10 @@
           }
         })
 
+      },
+      getMore(){
+        this.pageIndex++ ;
+        this.getComments();
       }
 
     }
