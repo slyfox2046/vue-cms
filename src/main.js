@@ -16,10 +16,11 @@ import Mint from 'mint-ui';
 Vue.use(Mint);
 
 //轮播图
-import { Swipe, SwipeItem } from 'mint-ui';
+import { Swipe, SwipeItem ,Button} from 'mint-ui';
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
