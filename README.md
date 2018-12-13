@@ -56,6 +56,76 @@
   + 如果调用getComments方法重新刷新评论列表的话，可能只能得到最后一页的评论，前几页的评论获取不到
   + 换一种思路：当评论成功后，在客户端，手动拼接出一个最新的评论对象，然后调用数组的unshift方法，把最新的评论追加到data的comments的开头。这样就能完美实现刷新评论列表的需求。
 
-
-
 ## 改造图片分析按钮为路由的链接并显示对应的组件页面
+
+## 绘制 图片列表 组件页面结构并美化样式
+1. 制作 顶部的滑动条
+2. 制作 底部的图片列表
+### 制作顶部滑动条的坑
+1. 需要借助于mui中的tab-top-webview-main.html
+2. 需要把slider区域的mui-fullscreen类去掉
+3. 滑动条无法正常触发滑动，通过检查官方文档，发现这是js组件，需要被初始化一下：
++ 导入mui.js
++ 调用官方提供的方式去初始化
+  https://dev.dcloud.net.cn/mui/ui/#scroll
+
+  ```js
+  mui('.mui-scroll-wrapper').scroll({
+  	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+  });
+  ```
+
+4. 我们在初始化滑动条的时候，导入的mui.js，但是，控制台报错：Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on `strict mode` functions or the arguments objects for calls to them  at Function.d.extend (mui.min.js?5dec:7)
+
+   但是，webpack打包好的bundle.js 中，默认是启用严格模式的，所以这两者冲突了；
+
+   **解决方案：**
+
+   1. 把mui.js中的非严格模式的代码改掉，但是不现实；
+   2. 把webpack打包时候的严格模式禁用掉 [参考文档](https://www.npmjs.com/package/babel-plugin-transform-remove-strict-mode)
+
+==import mui from '../../lib/mui/js/mui.min.js' 报错 mui模块找不到==
+
+1. 安装vue-awesome-mui  [参考文档](https://ask.dcloud.net.cn/article/12694)
+
+   ```JS
+   npm install vue-awesome-mui -S -D
+   ```
+
+2. main.js中
+    ```JS
+    import Mui from 'vue-awesome-mui'
+    //原来样式修改
+    // import './lib/mui/css/mui.css'
+    // import './lib/mui/css/icons-extra.css'
+    
+    import 'vue-awesome-mui/mui/dist/css/mui.css'
+    import "vue-awesome-mui/mui/examples/hello-mui/css/icons-extra.css";
+    // mount with global
+    Vue.use(Mui)
+    ```
+
+3. photolist.vue的mounter方法中添加：
+
+   `放在mounted中解决了从首页到图片后，菜单栏不能滑动的问题`
+
+   ```js
+       mounted() {
+         //当组件中的dom结构被渲染好并放到页面中后，会执行这个钩子函数
+         //如果要操作元素了，最好在mounted里面，因为这里时候的dom元素是最新的
+         mui('.mui-scroll-wrapper').scroll({
+             deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+           });
+       }
+   ```
+
+==去除警告： [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.==  (原因：chrome为了提高页面的滑动流畅度而新折腾出来的一个东西)
+
+```scss
+<style lang="scss" scoped>
+  * {
+    touch-action: pan-y;
+  }
+</style>
+```
+

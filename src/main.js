@@ -4,8 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import './lib/mui/css/mui.css'
-import './lib/mui/css/icons-extra.css'
+// import './lib/mui/css/mui.css'
+// import './lib/mui/css/icons-extra.css'
+
+import 'vue-awesome-mui/mui/dist/css/mui.css'
+import "vue-awesome-mui/mui/examples/hello-mui/css/icons-extra.css";
 // import {Header} from 'mint-ui'
 // Vue.component(Header.name,Header)
 
@@ -28,6 +31,9 @@ Vue.use(VueRouter)
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 Vue.http.options.root ="http://127.0.0.1:3000"
+
+import Mui from 'vue-awesome-mui'
+Vue.use(Mui)
 
 import moment from 'moment'
 
