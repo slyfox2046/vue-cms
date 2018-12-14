@@ -19,11 +19,16 @@ import Mint from 'mint-ui';
 Vue.use(Mint);
 
 //轮播图
-import { Swipe, SwipeItem ,Button} from 'mint-ui';
+// import { Swipe, SwipeItem ,Button,Lazyload} from 'mint-ui';
+//
+// Vue.use(Lazyload);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
 
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+import MintUI from "mint-ui"
+Vue.use(MintUI)
+import "mint-ui/lib/style.css"
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
