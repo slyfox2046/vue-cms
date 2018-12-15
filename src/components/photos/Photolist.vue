@@ -17,14 +17,14 @@
 
       <!--图片列表区域-->
       <ul class="photo-list">
-        <li v-for="item in list">
+        <router-link tag="li" v-for="item in list" :key="item.message.id" :to="'/home/photoinfo/'+item.message.id"  >
           <img v-lazy="item.message.img_url">
           <div class="info">
             <h1 class="info-title">{{item.message.title}}</h1>
             <div class="info-body">{{item.message.content}}</div>
           </div>
 
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>
@@ -80,7 +80,7 @@
 
         console.log(cateId);
         this.list = [];
-        this.$http.get("getnewsinfo").then(result => {
+        this.$http.get("getphotolist").then(result => {
           this.list = result.body
 
         })
@@ -111,7 +111,7 @@
       background-color: #ccc;
       text-align: center;
       margin-bottom: 10px;
-      box-shadow: 0 0 9px #999;
+      box-shadow: 2px 2px 9px #999;
       position: relative;
 
       img{
