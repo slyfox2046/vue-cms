@@ -42,6 +42,10 @@ Vue.use(Mui)
 
 import moment from 'moment'
 
+//安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 Vue.filter('dateFormat',function (dataStr,pattern="YYYY-MM-DD HH:mm:ss") {
   return moment(dataStr).format(pattern);
 })
