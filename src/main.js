@@ -35,6 +35,7 @@ Vue.use(VueRouter)
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+// Vue.http.options.root ="http://192.168.31.80:3000"
 Vue.http.options.root ="http://127.0.0.1:3000"
 
 import Mui from 'vue-awesome-mui'
@@ -45,6 +46,17 @@ import moment from 'moment'
 //安装图片预览插件
 import VuePreview from 'vue-preview'
 Vue.use(VuePreview)
+// with parameters install
+// Vue.use(VuePreview, {
+//   mainClass: 'pswp--minimal--dark',
+//   barsSize: {top: 0, bottom: 0},
+//   captionEl: false,
+//   fullscreenEl: false,
+//   shareEl: false,
+//   bgOpacity: 0.85,
+//   tapToClose: true,
+//   tapToToggleControls: false
+// })
 
 Vue.filter('dateFormat',function (dataStr,pattern="YYYY-MM-DD HH:mm:ss") {
   return moment(dataStr).format(pattern);

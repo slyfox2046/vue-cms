@@ -7,7 +7,11 @@
     </p>
     <hr>
     <!--缩略图区域-->
-    <vue-preview :slides="slide1" @close="handleClose"></vue-preview>
+    <div class="thumbs">
+    <vue-preview :slides="slide1" @close="handleClose" class="mypreview"></vue-preview>
+
+    </div>
+
 
     <!--图片内容-->
     <div class="content" v-html="photoinfo.content">
@@ -23,7 +27,6 @@
   // 导入comment组件
   import comment from '../subcomponents/comment'
 
-
   export default {
     name: "PhotoInfo",
     prop:[
@@ -37,11 +40,14 @@
       return {
         id: this.$route.params.id,
         photoinfo: [],
-        slide1: [  ]
+        slide1: [  ],
+        preview :this.$VuePreview
       }
     },
     created() {
+      console.log(this.preview);
       this.getPhotoInfo();
+      this.getThumbs();
     },
     methods: {
       handleClose(){
@@ -72,8 +78,24 @@
             msrc: 'https://farm4.staticflickr.com/3902/14985871946_86abb8c56f_m.jpg',
             alt: 'picture2',
             title: 'Image Caption 2',
-            w: 1200,
-            h: 900
+            w: 600,
+            h: 400
+          },
+          {
+            src: 'https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg',
+            msrc: 'https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg',
+            alt: 'picture1',
+            title: 'Image Caption 1',
+            w: 600,
+            h: 400
+          },
+          {
+            src: 'https://farm4.staticflickr.com/3920/15008465772_383e697089_b.jpg',
+            msrc: 'https://farm4.staticflickr.com/3920/15008465772_383e697089_m.jpg',
+            alt: 'picture2',
+            title: 'Image Caption 2',
+            w: 600,
+            h: 400
           }
         ]
       }
@@ -102,6 +124,10 @@
     }
 
     text-align: left;
+
+    .thumbs{
+
+    }
   }
 
 </style>

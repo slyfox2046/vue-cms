@@ -1,6 +1,6 @@
 <template>
   <!--<div>新闻详情&#45;&#45;{{id}}</div>-->
-  <div class="newinfo-container">
+  <div class="newsinfo-container">
     <h3 class="title">{{newsinfo.title}}</h3>
     <p class="subtitle">
       <span>发表时间：{{newsinfo.addtime |dateFormat('YYYY-MM-DD')}}</span>
@@ -55,8 +55,8 @@
 
 <!--<style lang="scss" scoped>-->
 <!--去掉scope是因为v-html注入代码的img标签没有被标记scope的特定标示，所以scope对其无效-->
-<style lang="scss" >
-  .newinfo-container{
+<style lang="scss" scoped>
+  .newsinfo-container{
     padding: 0 4px;
     .title{
       font-size: 16px;
@@ -78,5 +78,10 @@
 
     }
   }
+
+  /*.my-gallery{*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+  /*}*/
 
 </style>

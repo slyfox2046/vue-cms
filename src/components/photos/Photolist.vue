@@ -7,9 +7,9 @@
       <div id="sliderSegmentedControl"
            class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
         <div class="mui-scroll">
+          <!--click 改成了tap，解决手机上的bug-->
           <a :class="['mui-control-item',item.id==0 ? 'mui-active':'']"  v-for="item in cates" :key="item.id"
-          @click="getPhotoListByCateId(item.id)"
-          >
+          @tap="getPhotoListByCateId(item.id)">
             {{item.title}}
           </a>
         </div>
